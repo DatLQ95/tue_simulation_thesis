@@ -89,8 +89,7 @@ class ResultWriter():
             self.scheduling_writer.writerow(scheduling_output_header)
         placement_output_header = ['episode', 'time', 'node', 'sf']
         resources_output_header = ['episode', 'time', 'node', 'node_capacity', 'used_resources', 'ingress_traffic']
-        metrics_output_header = ['episode', 'time', 'total_flows', 'successful_flows', 'dropped_flows',
-                                 'in_network_flows', 'avg_end2end_delay']
+        metrics_output_header = ['episode', 'time', 'total_flows', 'successful_flows', 'in_network_flows', 'dropped_flows', 'dropped_flows_sfc_1', 'dropped_flows_sfc_2', 'dropped_flows_sfc_3','dropped_flows_sfc_4', 'avg_end2end_delay', 'avg_end2end_delay_sfc_1', 'avg_end2end_delay_sfc_2', 'avg_end2end_delay_sfc_3', 'avg_end2end_delay_sfc_4']
         run_flows_output_header = ['episode', 'time', 'successful_flows', 'dropped_flows', 'total_flows']
         runtimes_output_header = ['run', 'runtime']
         if self.write_per_flow_actions:
@@ -173,8 +172,7 @@ class ResultWriter():
             metrics = self.params.metrics.get_metrics()
             network = self.params.network
 
-            metrics_output = [self.params.episode, time, metrics['generated_flows'], metrics['processed_flows'],
-                              metrics['dropped_flows'], metrics['total_active_flows'], metrics['avg_end2end_delay']]
+            metrics_output = [self.params.episode, time, metrics['generated_flows'], metrics['processed_flows'], metrics['total_active_flows'], metrics['dropped_flows'], metrics['dropped_flows_sfcs']['sfc_1'], metrics['dropped_flows_sfcs']['sfc_2'], metrics['dropped_flows_sfcs']['sfc_3'], metrics['dropped_flows_sfcs']['sfc_4'], metrics['avg_end2end_delay'], metrics['avg_end2end_delay_sfcs']['sfc_1'], metrics['avg_end2end_delay_sfcs']['sfc_2'], metrics['avg_end2end_delay_sfcs']['sfc_3'], metrics['avg_end2end_delay_sfcs']['sfc_4']]
 
             resource_output = []
             for node in network.nodes(data=True):

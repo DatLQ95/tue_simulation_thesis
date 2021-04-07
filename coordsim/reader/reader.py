@@ -54,6 +54,17 @@ def get_sfc(sfc_file):
         sfc_list[sfc_name] = sfc_sf
     return sfc_list
 
+def get_sfc_requirement(sfc_requirement_file):
+    """
+    Get the list of SFCs from the yaml data.
+    """
+    with open(sfc_requirement_file) as yaml_stream:
+        sfc_requirement_data = yaml.load(yaml_stream, Loader=yaml.FullLoader)
+
+    sfc_requirement_list = defaultdict(None)
+    for sfc_name, sfc_sf in sfc_requirement_data['sfc_list'].items():
+        sfc_requirement_list[sfc_name] = sfc_sf
+    return sfc_requirement_list
 
 def load_resource_function(name, path):
     try:

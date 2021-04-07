@@ -28,16 +28,12 @@ class DefaultFlowGenerator(BaseFlowGenerator):
 
         # Assign a random SFC to the flow
         # percentage = {'sfc_1': 0.7, 'sfc_2': 1}
-        log.info(f"percentage: {self.params.percentage}")
-        log.info(f"percentage: {node_id}")
         
         choice = np.random.uniform(low=0,high=1)
-        log.info(f"choice: {choice}")
         for sfc in self.params.sfc_list.keys():
             if(choice < self.params.percentage[node_id][sfc]):
                 flow_sfc = sfc
                 break
-        log.info(f"flow_sfc: {flow_sfc}")
         # Get the flow's creation time (current environment time)
         creation_time = self.env.now
         # Set the egress node for the flow if some are specified in the network file

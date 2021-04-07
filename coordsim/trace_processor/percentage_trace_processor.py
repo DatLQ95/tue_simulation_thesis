@@ -26,7 +26,6 @@ class PercentageTraceProcessor():
                 if idx_key > 1:
                     self.params.percentage[node[0]][key] = float(self.percentage_trace[idx][key])
             
-        log.debug(f"self.params.percentage is {self.params.percentage}")
         pass
 
     def process_trace(self):
@@ -51,8 +50,6 @@ class PercentageTraceProcessor():
         for idx_key,key in enumerate(self.percentage_trace[self.trace_index].keys()):
             if idx_key > 1:
                 self.params.percentage[node_id][key] = percent[idx_key-2]
-
-        log.info(f"{self.params.percentage}")
 
         if self.trace_index < len(self.percentage_trace) - 1:
             self.trace_index += 1

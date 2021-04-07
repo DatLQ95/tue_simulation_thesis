@@ -47,7 +47,18 @@ class BaseController:
             'run_avg_end2end_delay': stats['run_avg_end2end_delay'],
             'run_max_end2end_delay': stats['run_max_end2end_delay'],
             'run_avg_path_delay': stats['run_avg_path_delay'],
-            'run_total_processed_traffic': stats['run_total_processed_traffic']
+            'run_total_processed_traffic': stats['run_total_processed_traffic'],
+
+            'total_flows_sfc': stats['generated_flows_sfcs'],
+            'successful_flows_sfcs': stats['processed_flows_sfcs'],
+            'dropped_flows_sfcs': stats['dropped_flows_sfcs'],
+            'run_successful_flows_sfcs': stats['run_processed_flows_sfcs'],
+            'run_dropped_flows_sfcs': stats['run_dropped_flows_sfcs'],
+            'in_network_flows_sfcs': stats['total_active_flows_sfcs'],
+            'avg_end2end_delay_sfcs': stats['avg_end2end_delay_sfcs'],
+            'run_avg_end2end_delay_sfcs': stats['run_avg_end2end_delay_sfcs'],
+            'run_max_end2end_delay_sfcs': stats['run_max_end2end_delay_sfcs'],
+            'run_avg_path_delay_sfcs': stats['run_avg_path_delay_sfcs'],
         }
 
     def get_current_ingress_traffic(self) -> float:

@@ -180,9 +180,6 @@ class Simulator(SimulatorInterface):
         return simulator_state
 
     def apply(self, actions):
-
-        logger.debug(f"t={self.env.now}: {actions}")
-
         # calc runtime since last apply (or init): that's the algorithm's runtime without simulation
         alg_runtime = time.time() - self.last_apply_time
         self.writer.write_runtime(alg_runtime)
